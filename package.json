@@ -6,14 +6,14 @@
   "bin": {
     "distill-render": "./bin/render.js"
   },
-  "author": "Shan Carter",
+  "author": "Harsha",
   "homepage": "https://harsha070.github.io/template/",
   "bugs": {
     "url": "https://github.com/distillpub/distill-template/issues"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "predeploy": "npm run dev",
+    "deploy": "gh-pages -d examples",
     "dev": "rollup -c rollup.config.dev.js -w",
     "serve": "http-server",
     "test": "mocha",
@@ -21,11 +21,8 @@
     "build": "rollup -c rollup.config.prod.js",
     "prepare": "npm run build"
   },
-  "scripts": {
-    "deploy": "npm run build && gh-pages -d examples -b master"
-  },
   "repository": {
-    "url": "git+https://github.com/distillpub/distill-template.git",
+    "url": "git+https://github.com/harsha070/template.git",
     "type": "git"
   },
   "devDependencies": {
