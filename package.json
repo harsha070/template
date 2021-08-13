@@ -12,7 +12,7 @@
     "url": "https://github.com/distillpub/distill-template/issues"
   },
   "scripts": {
-    "predeploy": "npm run dev",
+    "predeploy": "npm install && npm run dev",
     "deploy": "gh-pages -d examples",
     "dev": "rollup -c rollup.config.dev.js -w",
     "serve": "http-server",
