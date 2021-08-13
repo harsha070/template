@@ -22,30 +22,15 @@
 </head>
 
 <body>
-  <distill-header></distill-header>
   <d-front-matter>
     <script id='distill-front-matter' type="text/json">{
-    "title": "Why Momentum Really Works",
-    "description": "Although \" extremely useful for visualizing high-dimensional data, t-SNE plots can sometimes be mysterious or misleading.",
-    "published": "Jan 10, 2017",
+    "title": "Visualizing Control in Speech Synthesis",
+    "description": "",
     "authors": [
       {
-        "author":"Chris Olah",
-        "authorURL":"https://colah.github.io/",
-        "affiliations": [{"name": "Google Brain"}]
-      },
-      {
-        "author":"Ludwig Schubert",
-        "authorURL":"https://shancarter.com/",
-        "affiliations": [{"name": "Google Brain", "url": "https://g.co/brain"}]
-      },
-      {
-        "author":"Shan Carter",
-        "authorURL":"https://shancarter.com/",
-        "affiliations": [
-          {"name": "Google Brain", "url": "https://g.co/brain"},
-          {"name": "NYT", "url": "https://nytimes.com"}
-        ]
+        "author":"Sree Harsha Tanneru",
+        "authorURL":"https://harsha070.github.io/",
+        "affiliations": [{"name": "Independent"}]
       }
     ],
     "katex": {
@@ -56,25 +41,39 @@
   }</script>
   </d-front-matter>
   <d-title>
-    <figure style="grid-column: page; margin: 1rem 0;"><img src="momentum.png"
-        style="width:100%; border: 1px solid rgba(0, 0, 0, 0.2);" /></figure>
-    <p>We often think of Momentum<d-cite key="mercier2011humans"></d-cite> as a means of dampening oscillations and
-      speeding up the iterations, leading to faster convergence. But it has other interesting behavior. It allows a
-      larger range of step-sizes to be used, and creates its own oscillations. What is going on?</p>
+    <!--<figure style="grid-column: page; margin: 1rem 0;"><img src="momentum.png"
+        style="width:100%; border: 1px solid rgba(0, 0, 0, 0.2);" /></figure>-->
+    <p>Speech Synthesis, also known as Text to Speech is the task of synthesizing natural and intelligible speech from text. Modern day TTS Systems
+    involve expertise from Machine Learning, Linguistics and Signal Processing. In this blog post, we give a high level overview of TTS Systems, and illustrate Why and How
+    Speech Output can be controlled</p>
   </d-title>
   <d-byline></d-byline>
   <d-article>
+    <a class="marker" href="#section-0" id="section-0"><span>0</span></a>
+    <h2>Why Control ?</h2>
+    Why Control ? In a traditional Machine Learning problem, generalization is achieved by throwing in more data. Unlike a traditional machine learning problem,
+    Text-To-Speech is a one-to-many mapping problem. For a given text, the output could be speech with varying voice, pitch, emotion, energy and duration.
+    Recent Research has demonstrated ability to control Duration, Pitch, Energy in the output speech. We first demonstrate how
+    <iframe src="Fig1%205.html" width="672" height="376" zoom="2"></iframe>
     <a class="marker" href="#section-1" id="section-1"><span>1</span></a>
-    <h2>A Brief Survey of Techniques</h2>
-    <p>Before diving in: if you haven’t encountered t-SNE before, here’s what you need to know about the math behind it.
-      The goal is to take a set of points in a high-dimensional space and find a faithful representation of those points
-      in a lower-dimensional space, typically the 2D plane. The algorithm is non-linear and adapts to the underlying
-      data, performing different transformations on different regions. Those differences can be a major source of
-      confusion.</p>
-    <p>This is the first paragraph of the article. Test a long&thinsp;&mdash;&thinsp;dash -- here it is.</p>
+    <h2>Overview of Neural Text-to-Speech Synthesis</h2>
+    <p>Text is first converted to linguistic features, and then acoustic features, followed by voice</p>
+    <p>Text Analysis module converts a text sequence into linguistic features.</p>
     <p>Test for owner's possessive. Test for "quoting a passage." And another sentence. Or two. Some flopping fins; for
       diving.</p>
-    <aside>Some text in an aside, margin notes, etc...</aside>
+    <h3>Text Analysis</h3>
+    <p>Text Analysis converts text into rich information about pronunciation, rhythm, stress, intonation and prosody. These lingusitc features serve as the input to acoustic models.
+    Phonemes are one such way to repesent linguistic features. Phoneme is a perceptually distinct unit of sound.
+      English language has 44 phones, meaning pronunciation of any english word can be represented with these 44 phones.
+      <br>Example: the: <i>DH AHO</i>, dog: <i>D A01 G</i>
+    </p>
+    <figure style="grid-column: page; margin: 0rem 0;"><img src="text-analysis.gif"
+        style="width:100%; border: 0px solid rgba(0, 0, 0, 0.2);" /></figure>
+    <h3>Acoustic Model</h3>
+    Acoustic Models, are Sequence-To-Sequence models, to generate acoustic features from linguistic features, which are converted to waveform downstream.
+    The kind of input linguistic features and output acoustic feature decide the type of model. Mel-Capstral Coefficients, Mel-Generalized Coefficients, Linear Spectrograms, Mel-Spectrograms are examples of acoustic features.
+    Mel-Spectrogram is a widely used acoustic feature output, owing to it's minimal information loss.
+    <h4>Mel-Spectrogram Calculaton</h4>
     <p>Here's a test of an inline equation <d-math>c = a^2 + b^2</d-math>. Also with configurable katex standards just
       using inline '$' signs: $$x^2$$ And then there's a block equation:</p>
     <d-math block>
@@ -85,7 +84,13 @@
       \frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} = 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}}
       {1+\frac{e^{-6\pi}} {1+\frac{e^{-8\pi}} {1+\cdots} } } }
     </d-math>
+    <figure style="grid-column: page; margin: 0rem 0;"><img src="ezgif.com-gif-maker.gif"
+        style="width:100%; border: 0px solid rgba(0, 0, 0, 0.2);" /></figure>
+    <h3>Vocoders</h3>
     <a class="marker" href="#section-1.1" id="section-1.1"><span>1.1</span></a>
+    <h2>Overview of Neural Speech Synthesis</h2>
+    Neural TTS Systems typically involve three basic components - A Text Analysis module, which converts text to lingusitic features, an Acoustic Model,
+    and a Vocoder, to reconstruct the waveform from acoustic features.
     <h3>Citations</h3>
     <p>
       <d-slider style="width: 200px;"></d-slider>
@@ -99,72 +104,11 @@
       </d-footnote>. There are multiple footnotes, and they appear in the appendix<d-footnote>Given I have coded them
         right. Also, here's math in a footnote: <d-math>c = \sum_0^i{x}</d-math>. Also, a citation. Box-ception<d-cite
           key='gregor2015draw'></d-cite>!</d-footnote> as well.</p>
-    <a class="marker" href="#section-2" id="section-2"><span>2</span></a>
-    <h2>Displaying code snippets</h2>
-    <p>Some inline javascript:<d-code language="javascript">var x = 25;</d-code>. And here's a javascript code block.
-    </p>
-    <d-code block language="javascript">
-      var x = 25;
-      function(x){
-      return x * x;
-      }
-    </d-code>
-    <p>We also support python.</p>
-    <d-code block language="python">
-      # Python 3: Fibonacci series up to n
-      def fib(n):
-      a, b = 0, 1
-      while a < n: print(a, end=' ' ) a, b=b, a+b </d-code>
-        <p>And a table</p>
-        <table>
-          <thead>
-            <tr>
-              <th>First</th>
-              <th>Second</th>
-              <th>Third</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>23</td>
-              <td>654</td>
-              <td>23</td>
-            </tr>
-            <tr>
-              <td>14</td>
-              <td>54</td>
-              <td>34</td>
-            </tr>
-            <tr>
-              <td>234</td>
-              <td>54</td>
-              <td>23</td>
-            </tr>
-          </tbody>
-        </table>
-        <d-figure id="last-figure"></d-figure>
-        <script>
-          const figure = document.querySelector("d-figure#last-figure");
-          const initTag = document.createElement("span");
-          initTag.textContent = "initialized!"
-          figure.appendChild(initTag);
-          figure.addEventListener("ready", function () {
-            const initTag = figure.querySelector("span");
-            initTag.textContent = "ready"
-            console.log('ready')
-          });
-          figure.addEventListener("onscreen", function () {
-            const initTag = figure.querySelector("span");
-            initTag.textContent = "onscreen"
-            console.log('onscreen')
-          });
-          figure.addEventListener("offscreen", function () {
-            const initTag = figure.querySelector("span");
-            initTag.textContent = "offscreen!"
-            console.log('offscreen')
-          });
-        </script>
-        <p>That's it for the example article!</p>
+    <h3>Checking attenton values with and without pitch embeddings</h3>
+    <iframe src="head_view_bert.html" width="500" height="500" zoom="3", align="right"></iframe>
+    <iframe src="head_view_bert.html" width="500" height="500" zoom="3" align="left"></iframe>
+    <h3>Checking attenton values with and without energy embeddings</h3>
+    <h3>Checking attenton values with and without emotion embeddings</h3>
 
   </d-article>
 
@@ -177,7 +121,5 @@
 
     <d-bibliography src="bibliography.bib"></d-bibliography>
   </d-appendix>
-
-  <distill-footer></distill-footer>
 
 </body>
