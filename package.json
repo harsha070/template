@@ -21,6 +21,9 @@
     "build": "rollup -c rollup.config.prod.js",
     "prepare": "npm run build"
   },
+  "scripts": {
+    "deploy": "npm run build && gh-pages -d dist -b master"
+  },
   "repository": {
     "url": "git+https://github.com/distillpub/distill-template.git",
     "type": "git"
