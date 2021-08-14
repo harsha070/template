@@ -105,6 +105,19 @@ target speech in the training set, resulting in poor generalization ability. In 
     Pitch is a key feature to convey emotion, and greatly affects the speech prosody.  FastSpeech provides a way to control pitch by adding pitch variance information to the phoneme hidden sequence. The ground truth pitch information, extracted from speech waveforms, are used as targets during training. The following figure shows how attention changes after adding pitch embeddings.
     <h3>Emotion</h3>
     We now experiment with another parameter, Emotion, to control speech output. We add emotion embeddings to the phoneme hidden sequence, and notice the difference in output speech waveform and attention of each token to input.
+    <h3>Checking attenton values with and without pitch embeddings</h3>
+    <figure style="grid-column: page; margin: 1rem 0; align-content: center">
+      <iframe src="head_view_bert_no_pitch.html" width="500" height="1000" zoom="3" align="left"></iframe>
+      <iframe src="head_view_bert_pitch.html" width="500" height="1000" zoom="3" align="right"></iframe>
+    </figure>
+    <figcaption align="left">Attention without pitch embeddings</figcaption>
+    <figcaption align="right">Attention without pitch embeddings</figcaption>
+    <h3>Checking attenton values with and without emotion embeddings</h3>
+    <figure style="grid-column: page; margin: 1rem 0; align-content: center">
+      <iframe src="head_view_bert_no_pitch.html" width="500" height="1000" zoom="3" align="left"></iframe>
+      <iframe src="head_view_bert_emotion.html" width="500" height="1000" zoom="3" align="right"></iframe>
+    </figure>
+
     <h3>Citations</h3>
     <p>
       <d-slider style="width: 200px;"></d-slider>
@@ -118,23 +131,13 @@ target speech in the training set, resulting in poor generalization ability. In 
       </d-footnote>. There are multiple footnotes, and they appear in the appendix<d-footnote>Given I have coded them
         right. Also, here's math in a footnote: <d-math>c = \sum_0^i{x}</d-math>. Also, a citation. Box-ception<d-cite
           key='gregor2015draw'></d-cite>!</d-footnote> as well.</p>
-    <h3>Checking attenton values with and without pitch embeddings</h3>
-    <figure style="grid-column: page; margin: 1rem 0; align-content: center">
-      <iframe src="head_view_bert_no_pitch.html" width="500" height="1000" zoom="3" align="left"></iframe>
-      <iframe src="head_view_bert_pitch.html" width="500" height="1000" zoom="3" align="right"></iframe>
-    </figure>
-    <h3>Checking attenton values with and without emotion embeddings</h3>
-    <figure style="grid-column: page; margin: 1rem 0; align-content: center">
-      <iframe src="head_view_bert_no_pitch.html" width="500" height="1000" zoom="3" align="left"></iframe>
-      <iframe src="head_view_bert_emotion.html" width="500" height="1000" zoom="3" align="right"></iframe>
-    </figure>
 
   </d-article>
 
   <d-appendix>
 
     <h3>Contributions</h3>
-    <p>Some text describing who did what.</p>
+    <p>Harsha is the sole contributor of this blog.</p>
     <h3>Reviewers</h3>
     <p>Some text with links describing who reviewed the article.</p>
 
