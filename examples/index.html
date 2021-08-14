@@ -43,26 +43,15 @@
   <d-title>
     <!--<figure style="grid-column: page; margin: 1rem 0;"><img src="momentum.png"
         style="width:100%; border: 1px solid rgba(0, 0, 0, 0.2);" /></figure>-->
-    <p>Speech Synthesis, also known as Text to Speech is the task of synthesizing natural and intelligible speech from text. Modern day TTS Systems
-    involve expertise from Machine Learning, Linguistics and Signal Processing. Research on TTS has shifted from Early Concatenative Synthesis, to Parametric Synthesis to Neural Speech Synthesis.
-      In this blog post, we give a high level overview of TTS Systems, and illustrate Why and How
-    Speech Output can be controlled. We specifically look at how output waveform and attention vary with the explicit introduction of pitch and emotion features.</p>
+    <p>Speech Synthesis, also known as Text to Speech (TTS) is the task of synthesizing natural and intelligible speech from text, with broad applications in Industry. Modern day TTS Systems involve expertise from Machine Learning, Linguistics and Signal Processing. Research on TTS has shifted from Early Concatenative Synthesis, to Parametric Synthesis to Neural Speech Synthesis. In this blog post, we give a high level overview of TTS Systems, and illustrate Why and How Speech Output can be controlled. We specifically look at how and attention varies with the explicit introduction of pitch and emotion features.</p>
   </d-title>
   <d-byline></d-byline>
   <d-article>
-    <a class="marker" href="#section-0" id="section-0"><span>0</span></a>
-    <h2>Why Control ?</h2>
-    Why Control ? In a traditional Machine Learning problem, generalization is achieved by throwing in more data. Unlike a traditional machine learning problem,
-    Text-To-Speech is a one-to-many mapping problem. For a given text, the output could be speech with varying voice, pitch, emotion, energy and duration.
-    Recent Research has demonstrated ability to control Duration, Pitch, Energy in the output speech. We first demonstrate how
     <a class="marker" href="#section-1" id="section-1"><span>1</span></a>
     <h2>Overview of Neural Text-to-Speech Synthesis</h2>
-    <p>Text is first converted to linguistic features, and then acoustic features, followed by voice</p>
-    <p>Text Analysis module converts a text sequence into linguistic features.</p>
-    <p>Test for owner's possessive. Test for "quoting a passage." And another sentence. Or two. Some flopping fins; for
-      diving.</p>
+    <para>With the development of Deep Learning, Neural Network based TTS Approaches have become prominent. Neural Speech Synthesis approaches give higher voice quality in terms of both intelligibility and naturalness, and less requirement on human preprocessing and feature development. A Modern TTS System consists of three components - Text Analysis Module, Acoustic Model and a Vocoder. Let’s look into each in detail.</para>
     <h3>Text Analysis</h3>
-    <p>Text Analysis converts text into rich information about pronunciation, rhythm, stress, intonation and prosody. These lingusitc features serve as the input to acoustic models.
+    <p>Text Analysis converts text into rich lingusitc information about pronunciation, rhythm, stress, intonation and prosody. These lingusitc features serve as the input to acoustic models.
     Phonemes are one such way to repesent linguistic features. Phoneme is a perceptually distinct unit of sound.
       English language has 44 phones, meaning pronunciation of any english word can be represented with these 44 phones.
       <br>Example: the: <i>DH AHO</i>, dog: <i>D A01 G</i>
@@ -93,6 +82,11 @@
     to generate the waveform, and Discriminator judges the authenticity of generated data.
     <figure style="grid-column: span; margin: 0rem 0; align-content: center"><img src="vocoder.png"
         style="width:70%; border: 0px solid rgba(0, 0, 0, 0.2); align-content: space-evenly" /></figure>
+    <a class="marker" href="#section-0" id="section-0"><span>0</span></a>
+    <h2>Why Control ?</h2>
+    Why Control ? In a traditional Machine Learning problem, generalization is achieved by throwing in more data. Unlike a traditional machine learning problem,
+    Text-To-Speech is a one-to-many mapping problem. For a given text, the output could be speech with varying voice, pitch, emotion, energy and duration.
+    Recent Research has demonstrated ability to control Duration, Pitch, Energy in the output speech. We first demonstrate how
     <a class="marker" href="#section-1.1" id="section-1.1"><span>1.1</span></a>
     <h2>Control in Neural Speech Synthesis</h2>
     <para>
@@ -117,6 +111,8 @@ target speech in the training set, resulting in poor generalization ability. In 
       <iframe src="head_view_bert_no_pitch.html" width="500" height="1000" zoom="3" align="left"></iframe>
       <iframe src="head_view_bert_emotion.html" width="500" height="1000" zoom="3" align="right"></iframe>
     </figure>
+    <figcaption align="left">Attention without Emotion embedding</figcaption>
+    <figcaption align="right">Attention with Emotion embedding</figcaption>
 
     <h3>Citations</h3>
     <p>
