@@ -44,7 +44,8 @@
     <!--<figure style="grid-column: page; margin: 1rem 0;"><img src="momentum.png"
         style="width:100%; border: 1px solid rgba(0, 0, 0, 0.2);" /></figure>-->
     <p>Speech Synthesis, also known as Text to Speech is the task of synthesizing natural and intelligible speech from text. Modern day TTS Systems
-    involve expertise from Machine Learning, Linguistics and Signal Processing. In this blog post, we give a high level overview of TTS Systems, and illustrate Why and How
+    involve expertise from Machine Learning, Linguistics and Signal Processing. Research on TTS has shifted from Early Concatenative Synthesis, to Parametric Synthesis to Neural Speech Synthesis.
+      In this blog post, we give a high level overview of TTS Systems, and illustrate Why and How
     Speech Output can be controlled. We specifically look at how output waveform and attention vary with the explicit introduction of pitch and emotion features.</p>
   </d-title>
   <d-byline></d-byline>
@@ -95,8 +96,13 @@
         style="width:70%; border: 0px solid rgba(0, 0, 0, 0.2); align-content: space-evenly" /></figure>
     <a class="marker" href="#section-1.1" id="section-1.1"><span>1.1</span></a>
     <h2>Control in Neural Speech Synthesis</h2>
-    Neural TTS Systems typically involve three basic components - A Text Analysis module, which converts text to lingusitic features, an Acoustic Model,
-    and a Vocoder, to reconstruct the waveform from acoustic features.
+    <para>
+      TTS is a typical one-to-many mapping problem, since multiple possible speech waveforms correspond to the same text message, owing to variations in
+      pitch, duration, volume, energy and prosody. Controlling these parameters is necessary, as the model is prone to overfit to the variations of the
+target speech in the training set, resulting in poor generalization ability. In the following experiments, we model pitch, and emotion, two features which influence the quality of speech explicity,
+      and add embeddings it to the encoder output before decoding. We look through the attention values to see how they change.
+
+    </para>
     <h3>Citations</h3>
     <p>
       <d-slider style="width: 200px;"></d-slider>
