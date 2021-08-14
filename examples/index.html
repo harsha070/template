@@ -99,10 +99,13 @@
     <para>
       TTS is a typical one-to-many mapping problem, since multiple possible speech waveforms correspond to the same text message, owing to variations in
       pitch, duration, volume, energy and prosody. Controlling these parameters is necessary, as the model is prone to overfit to the variations of the
-target speech in the training set, resulting in poor generalization ability. In the following experiments, we model pitch, and emotion, two features which influence the quality of speech explicity,
-      and add embeddings it to the encoder output before decoding. We look through the attention values to see how they change.
-
+target speech in the training set, resulting in poor generalization ability. In the following experiments, we model pitch, and emotion, two features which influence the quality of speech explicity. We then add this variance information to
+      the phoneme hidden sequence before decoding. We look through the attention values to see how they change.
     </para>
+    <h3>Pitch</h3>
+    Pitch is a key feature to convey emotion, and greatly affects the speech prosody.  FastSpeech provides a way to control pitch by adding pitch variance information to the phoneme hidden sequence. The ground truth pitch information, extracted from speech waveforms, are used as targets during training. The following figure shows how attention changes after adding pitch embeddings.
+    <h3>Emotion</h3>
+    We now experiment with another parameter, Emotion, to control speech output. We add emotion embeddings to the phoneme hidden sequence, and notice the difference in output speech waveform and attention of each token to input.
     <h3>Citations</h3>
     <p>
       <d-slider style="width: 200px;"></d-slider>
