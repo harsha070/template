@@ -54,14 +54,29 @@
     <p>Text Analysis converts text into rich lingusitc information about pronunciation, rhythm, stress, intonation and prosody. These lingusitc features serve as the input to acoustic models.
     Phonemes are one such way to repesent linguistic features. Phoneme is a perceptually distinct unit of sound.
       English language has 44 phones, meaning pronunciation of any english word can be represented with these 44 phones.
-      <br>Example: the: <i>DH AHO</i>, dog: <i>D A01 G</i>
+        <table style="width:70%" class="center">
+          <tr>
+            <th>Word</th>
+            <th>Phoneme Representation</th>
+          </tr>
+          <tr>
+            <td>The</td>
+            <td><b>DH AH0</b></td>
+          </tr>
+          <tr>
+            <td>Quick</td>
+            <td>K W IH1 K</td>
+          </tr>
+          <tr>
+            <td>Brown</td>
+            <td>B R AW1 N</td>
+          </tr>
+        </table>
     </p>
     <figure style="grid-column: page; margin: 0rem 0;"><img src="text-analysis.gif"
         style="width:100%; border: 0px solid rgba(0, 0, 0, 0.2);" /></figure>
     <h3>Acoustic Model</h3>
-    Acoustic Models, are Sequence-To-Sequence models, to generate acoustic features from linguistic features, which are converted to waveform downstream.
-    The kind of input linguistic features and output acoustic feature decide the type of model. Mel-Capstral Coefficients, Mel-Generalized Coefficients, Linear Spectrograms, Mel-Spectrograms are examples of acoustic features.
-    Mel-Spectrogram is a widely used acoustic feature output, owing to it's minimal information loss.
+    Acoustic Models are Sequence-To-Sequence Models which generate Acoustic features from linguistic features or directly from raw text. The Acoustic features are later converted into a speech waveform. The kind of acoustic features determine the type of architecture used for generation. Mel-Spectrogram is a widely used acoustic feature output, owing to its minimal information loss.
     <h4>Mel-Spectrogram Calculaton</h4>
     <p>Here's a test of an inline equation <d-math>c = a^2 + b^2</d-math>. Also with configurable katex standards just
       using inline '$' signs: $$x^2$$ And then there's a block equation:</p>
@@ -100,6 +115,13 @@ target speech in the training set, resulting in poor generalization ability. In 
     <h3>Emotion</h3>
     We now experiment with another parameter, Emotion, to control speech output. We add emotion embeddings to the phoneme hidden sequence, and notice the difference in output speech waveform and attention of each token to input.
     <h3>Checking attenton values with and without pitch embeddings</h3>
+    <aside>
+      Hover over any token on the left/right side of the visualization to filter attention from/to that token. The colors correspond to different attention heads.
+      Double-click on any of the colored tiles at the top to filter to the corresponding attention head.
+      Single-click on any of the colored tiles to toggle selection of the corresponding attention head.
+      Click on the Layer drop-down to change the model layer (zero-indexed).
+      The lines show the attention from each token (left) to every other token (right). Darker lines indicate higher attention weights. When multiple heads are selected, the attention weights are overlaid on one another.
+    </aside>
     <figure style="grid-column: page; margin: 1rem 0; align-content: center">
       <iframe src="head_view_bert_no_pitch.html" width="500" height="1000" zoom="3" align="left"></iframe>
       <iframe src="head_view_bert_pitch.html" width="500" height="1000" zoom="3" align="right"></iframe>
