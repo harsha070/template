@@ -89,16 +89,8 @@
         style="width:100%; border: 0px solid rgba(0, 0, 0, 0.2);" /></figure>
     <a class="marker" href="#section-0" id="section-0"><span>0</span></a>
     <h2>Why Control ?</h2>
-    Why Control ? In a traditional Machine Learning problem, generalization is achieved by throwing in more data. Unlike a traditional machine learning problem,
-    Text-To-Speech is a one-to-many mapping problem. For a given text, the output could be speech with varying voice, pitch, emotion, energy and duration.
-    Recent Research has demonstrated ability to control Duration, Pitch, Energy in the output speech. We first demonstrate how
-    <a class="marker" href="#section-1.1" id="section-1.1"><span>1.1</span></a>
-    <h2>Control in Neural Speech Synthesis</h2>
     <para>
-      TTS is a typical one-to-many mapping problem, since multiple possible speech waveforms correspond to the same text message, owing to variations in
-      pitch, duration, volume, energy and prosody. Controlling these parameters is necessary, as the model is prone to overfit to the variations of the
-target speech in the training set, resulting in poor generalization ability. In the following experiments, we model pitch, and emotion, two features which influence the quality of speech explicity. We then add this variance information to
-      the phoneme hidden sequence before decoding. We look through the attention values to see how they change.
+      In a traditional Machine Learning problem, generalization is typically achieved by throwing in more data. Unlike a traditional machine learning problem, Text-To-Speech is a one-to-many mapping problem. TTS is a typical one-to-many mapping problem, since multiple possible speech waveforms correspond to the same text message, owing to variations in pitch, duration, volume, energy and prosody. Controlling these parameters is necessary, as the model is prone to overfit to the variations of the target speech in the training set, resulting in poor generalization ability. Recent Research has demonstrated ability to control Duration, Pitch, Energy in the output speech. In the following experiments, we model pitch, and emotion, two features which influence the quality of speech explicitly. We then add this variance information to the phoneme hidden sequence before decoding. We look through the attention values to see how they affect the output.
     </para>
     <h3>Pitch</h3>
     Pitch is a key feature to convey emotion, and greatly affects the speech prosody.  FastSpeech provides a way to control pitch by adding pitch variance information to the phoneme hidden sequence. The ground truth pitch information, extracted from speech waveforms, are used as targets during training. The following figure shows how attention changes after adding pitch embeddings.
