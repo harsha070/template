@@ -77,18 +77,8 @@
         style="width:100%; border: 0px solid rgba(0, 0, 0, 0.2);" /></figure>
     <h3>Acoustic Model</h3>
     Acoustic Models are Sequence-To-Sequence Models which generate Acoustic features from linguistic features or directly from raw text. The Acoustic features are later converted into a speech waveform. The kind of acoustic features determine the type of architecture used for generation. Mel-Spectrogram is a widely used acoustic feature output, owing to its minimal information loss.
-    <h4>Mel-Spectrogram Calculaton</h4>
-    <p>Here's a test of an inline equation <d-math>c = a^2 + b^2</d-math>. Also with configurable katex standards just
-      using inline '$' signs: $$x^2$$ And then there's a block equation:</p>
-    <d-math block>
-      c = \pm \sqrt{ \sum_{i=0}^{n}{a^{222} + b^2}}
-    </d-math>
-    <p>Math can also be quite involved:</p>
-    <d-math block>
-      \frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} = 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}}
-      {1+\frac{e^{-6\pi}} {1+\frac{e^{-8\pi}} {1+\cdots} } } }
-    </d-math>
-    <figure style="grid-column: page; margin: 0rem 0;"><img src="ezgif.com-gif-maker.gif"
+    Mel-Spectrogram is derived based on linear cosine transform of speech wave on a log linear frequency scale.<br>
+    <br><figure style="grid-column: page; margin: 0rem 0;"><img src="ezgif.com-gif-maker.gif"
         style="width:100%; border: 0px solid rgba(0, 0, 0, 0.2);" /></figure>
     <h3>Vocoders</h3>
     Vocoders are used to synthesize waveform from acoustic features. Neural Vocoders have recently gained popularity owing to their higher speech quality.
