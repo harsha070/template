@@ -96,7 +96,7 @@
     <para>Pitch is a key feature to convey emotion, and greatly affects the speech prosody.  FastSpeech provides a way to control pitch by adding pitch variance information to the phoneme hidden sequence. The ground truth pitch information, extracted from speech waveforms, are used as targets during training. The following figure shows how phoneme level attention without and with embedded pitch information.</para>
     <h3>Visualising Attention with and without pitch embeddings</h3>
     We generate speech for the text "Ohh My God! Our dog died." with and without pitch embeddings. The following shows the visualisation of attention values in
-    the first decoding step. The tokens on the left indicate phones in the sentence. There are duplicated consecutive phones, corresponding to the duration of the phone.<br>
+    the first decoding step. The tokens on the left indicate phones in the sentence. Consecutive occurence of same phone are representative of it's duration<br>
 
     <table style="width:100%" class="center">
           <tr>
@@ -121,40 +121,28 @@
     </figure>
     <figcaption align="left">Attention without pitch embeddings</figcaption>
     <figcaption align="right">Attention without pitch embeddings</figcaption>
+    <para>
+      Pitch Embeddings have reduced the attention span for each token while generating output. Each token is giving more weight
+      to its corresponding input token, compared to without pitch embedding.
+    </para>
     <h3>Emotion</h3>
-    We now experiment with another parameter, Emotion, to control speech output. We add emotion embeddings to the phoneme hidden sequence, and notice the difference in output speech waveform and attention of each token to input.
-    <h3>Checking attenton values with and without emotion embeddings</h3>
+    We now experiment with another sppech parameter, Emotion, to control speech output. We add emotion embeddings to the phoneme hidden sequence, and notice the difference in output speech waveform and attention of each token to input.
+    <h3>Visualising Attention with and without Emotion embeddings</h3>
     <figure style="grid-column: page; margin: 1rem 0; align-content: center">
       <iframe src="head_view_bert_no_pitch.html" width="500" height="1000" zoom="3" align="left"></iframe>
       <iframe src="head_view_bert_emotion.html" width="500" height="1000" zoom="3" align="right"></iframe>
     </figure>
     <figcaption align="left">Attention without Emotion embedding</figcaption>
     <figcaption align="right">Attention with Emotion embedding</figcaption>
+    <para>
+    Adding Emotion Embeddings helps in attending to much farther tokens to generate acoustic features.
+    </para>
 
     <h3>Citations</h3>
-    <p>
-      <d-slider style="width: 200px;"></d-slider>
-    </p>
     <p>We can<d-cite bibtex-key="mercier2011humans"></d-cite> also cite <d-cite
         key="gregor2015draw,mercier2011humans,openai2018charter"></d-cite> external publications. <d-cite
-        key="dong2014image,dumoulin2016guide,mordvintsev2015inceptionism"></d-cite>. We should also be testing footnotes
-      <d-footnote>This will become a hoverable footnote. This will become a hoverable footnote. This will become a
-        hoverable footnote. This will become a hoverable footnote. This will become a hoverable footnote. This will
-        become a hoverable footnote. This will become a hoverable footnote. This will become a hoverable footnote.
-      </d-footnote>. There are multiple footnotes, and they appear in the appendix<d-footnote>Given I have coded them
-        right. Also, here's math in a footnote: <d-math>c = \sum_0^i{x}</d-math>. Also, a citation. Box-ception<d-cite
-          key='gregor2015draw'></d-cite>!</d-footnote> as well.</p>
+        key="dong2014image,dumoulin2016guide,mordvintsev2015inceptionism"></d-cite>. We should also be testing footnotes . There are multiple footnotes, and they appear in the appendix as well.</p>
 
   </d-article>
-
-  <d-appendix>
-
-    <h3>Contributions</h3>
-    <p>Harsha is the sole contributor of this blog.</p>
-    <h3>Reviewers</h3>
-    <p>Some text with links describing who reviewed the article.</p>
-
-    <d-bibliography src="bibliography.bib"></d-bibliography>
-  </d-appendix>
 
 </body>
