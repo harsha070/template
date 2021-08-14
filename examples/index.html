@@ -96,17 +96,18 @@
     <para>Pitch is a key feature to convey emotion, and greatly affects the speech prosody.  FastSpeech provides a way to control pitch by adding pitch variance information to the phoneme hidden sequence. The ground truth pitch information, extracted from speech waveforms, are used as targets during training. The following figure shows how phoneme level attention without and with embedded pitch information.</para>
     <h3>Visualising Attention with and without pitch embeddings</h3>
     We generate speech for the text "Ohh My God! Our dog died." with and without pitch embeddings. The following shows the visualisation of attention values in
-    the first decoding step.
-        <table style="width:100%" class="center">
+    the first decoding step. The tokens on the left indicate phones in the sentence. There are duplicated consecutive phones, corresponding to the duration of the phone.<br>
+
+    <table style="width:100%" class="center">
           <tr>
             <th>Sentence</th>
             <th>Phoneme Representation</th>
           </tr>
           <tr>
             <td>Ohh My God! Our dog died.</td>
-            <td><b>OW1 M AY1 G AA1 D sp AA1 R D AO1 G D AY1 D</b></td>
+            <td><b>OW1 M AY1 G AA1 D AW1 ER0 D AO1 G D AY1 D</b></td>
           </tr>
-        </table>
+    </table>
     <small>
       <li>Hover over any token on the left/right side of the visualization to filter attention from/to that token.</li>
       <li margin-bottom="5px"> The colors correspond to different attention heads.</li>
