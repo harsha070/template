@@ -87,8 +87,14 @@
     <figure style="grid-column: page; margin: 0rem 0;"><img src="ezgif.com-gif-maker.gif"
         style="width:100%; border: 0px solid rgba(0, 0, 0, 0.2);" /></figure>
     <h3>Vocoders</h3>
+    Vocoders are used to synthesize waveform from acoustic features. Neural Vocoders have recently gained popularity owing to their higher speech quality.
+     Since speech waveform is very long, autoregressive waveform generation takes much inference time. Thus, generative models such as Flow, GAN,
+    VAE, and DDPM (Denoising Diffusion Probabilistic Model, Diffusion for short) are used in waveform generation. Prominent TTS Methods used GAN based Vocoders, where Generators use transposed and dilated convolutions
+    to generate the waveform, and Discriminator judges the authenticity of generated data.
+    <figure style="grid-column: span; margin: 0rem 0; align-content: center"><img src="vocoder.png"
+        style="width:70%; border: 0px solid rgba(0, 0, 0, 0.2); align-content: space-evenly" /></figure>
     <a class="marker" href="#section-1.1" id="section-1.1"><span>1.1</span></a>
-    <h2>Overview of Neural Speech Synthesis</h2>
+    <h2>Control in Neural Speech Synthesis</h2>
     Neural TTS Systems typically involve three basic components - A Text Analysis module, which converts text to lingusitic features, an Acoustic Model,
     and a Vocoder, to reconstruct the waveform from acoustic features.
     <h3>Citations</h3>
