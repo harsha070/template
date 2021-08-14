@@ -15,7 +15,7 @@
 -->
 <!doctype html>
 
-<head>
+<head xmlns="http://www.w3.org/1999/html">
   <script src="https://distill.pub/template.v2.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf8">
@@ -93,23 +93,35 @@
       In a traditional Machine Learning problem, generalization is typically achieved by throwing in more data. Unlike a traditional machine learning problem, Text-To-Speech is a one-to-many mapping problem. TTS is a typical one-to-many mapping problem, since multiple possible speech waveforms correspond to the same text message, owing to variations in pitch, duration, volume, energy and prosody. Controlling these parameters is necessary, as the model is prone to overfit to the variations of the target speech in the training set, resulting in poor generalization ability. Recent Research has demonstrated ability to control Duration, Pitch, Energy in the output speech. In the following experiments, we model pitch, and emotion, two features which influence the quality of speech explicitly. We then add this variance information to the phoneme hidden sequence before decoding. We look through the attention values to see how they affect the output.
     </para>
     <h3>Pitch</h3>
-    Pitch is a key feature to convey emotion, and greatly affects the speech prosody.  FastSpeech provides a way to control pitch by adding pitch variance information to the phoneme hidden sequence. The ground truth pitch information, extracted from speech waveforms, are used as targets during training. The following figure shows how attention changes after adding pitch embeddings.
-    <h3>Emotion</h3>
-    We now experiment with another parameter, Emotion, to control speech output. We add emotion embeddings to the phoneme hidden sequence, and notice the difference in output speech waveform and attention of each token to input.
-    <h3>Checking attenton values with and without pitch embeddings</h3>
-    <aside>
-      Hover over any token on the left/right side of the visualization to filter attention from/to that token. The colors correspond to different attention heads.
-      Double-click on any of the colored tiles at the top to filter to the corresponding attention head.
-      Single-click on any of the colored tiles to toggle selection of the corresponding attention head.
-      Click on the Layer drop-down to change the model layer (zero-indexed).
-      The lines show the attention from each token (left) to every other token (right). Darker lines indicate higher attention weights. When multiple heads are selected, the attention weights are overlaid on one another.
-    </aside>
-    <figure style="grid-column: page; margin: 1rem 0; align-content: center">
+    <para>Pitch is a key feature to convey emotion, and greatly affects the speech prosody.  FastSpeech provides a way to control pitch by adding pitch variance information to the phoneme hidden sequence. The ground truth pitch information, extracted from speech waveforms, are used as targets during training. The following figure shows how phoneme level attention without and with embedded pitch information.</para>
+    <h3>Visualising Attention with and without pitch embeddings</h3>
+    We generate speech for the text "Ohh My God! Our dog died." with and without pitch embeddings. The following shows the visualisation of attention values in
+    the first decoding step.
+        <table style="width:100%" class="center">
+          <tr>
+            <th>Sentence</th>
+            <th>Phoneme Representation</th>
+          </tr>
+          <tr>
+            <td>Ohh My God! Our dog died.</td>
+            <td><b>OW1 M AY1 G AA1 D sp AA1 R D AO1 G D AY1 D</b></td>
+          </tr>
+        </table>
+    <small>
+      <li>Hover over any token on the left/right side of the visualization to filter attention from/to that token.</li>
+      <li margin-bottom="5px"> The colors correspond to different attention heads.</li>
+      <li>Double-click on any of the colored tiles at the top to filter to the corresponding attention head.</li>
+      <li>The lines show the attention from each token (left) to every other token (right).</li>
+      <li>Darker lines indicate higher attention weights.</li>
+    </small>
+      <figure style="grid-column: page; margin: 1rem 0; align-content: center">
       <iframe src="head_view_bert_no_pitch.html" width="500" height="1000" zoom="3" align="left"></iframe>
       <iframe src="head_view_bert_pitch.html" width="500" height="1000" zoom="3" align="right"></iframe>
     </figure>
     <figcaption align="left">Attention without pitch embeddings</figcaption>
     <figcaption align="right">Attention without pitch embeddings</figcaption>
+    <h3>Emotion</h3>
+    We now experiment with another parameter, Emotion, to control speech output. We add emotion embeddings to the phoneme hidden sequence, and notice the difference in output speech waveform and attention of each token to input.
     <h3>Checking attenton values with and without emotion embeddings</h3>
     <figure style="grid-column: page; margin: 1rem 0; align-content: center">
       <iframe src="head_view_bert_no_pitch.html" width="500" height="1000" zoom="3" align="left"></iframe>
