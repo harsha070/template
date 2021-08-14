@@ -24,11 +24,11 @@
   } else {
     // Platform does not support webcomponents--loading polyfills synchronously.
     const scriptTag = document.createElement('script');
-    scriptTag.src = '../dist/webcomponents-lite.js';
+    scriptTag.src = 'dist/webcomponents-lite.js';
     scriptTag.async = false;
     document.currentScript.parentNode.insertBefore(scriptTag, document.currentScript.nextSibling);
   }
-</script><script src="../dist/components.js"></script>
+</script><script src="dist/components.js"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
