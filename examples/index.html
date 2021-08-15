@@ -49,7 +49,7 @@
   <d-article>
     <a class="marker" href="#section-1" id="section-1"><span>1</span></a>
     <h2>Overview of Neural Text-to-Speech Synthesis</h2>
-    <para>With the development of Deep Learning, Neural Network based TTS Approaches have become prominent. Neural Speech Synthesis approaches give higher voice quality in terms of both intelligibility and naturalness, and less requirement on human preprocessing and feature development. A Modern TTS System consists of three components - Text Analysis Module, Acoustic Model and a Vocoder. Let’s look into each in detail.</para>
+    <para>With the development of Deep Learning, Neural Network based TTS Approaches have become prominent. Neural Speech Synthesis<d-cite key="tan2021survey"></d-cite> approaches give higher voice quality in terms of both intelligibility and naturalness, and less requirement on human preprocessing and feature development. A Modern TTS System consists of three components - Text Analysis Module, Acoustic Model and a Vocoder. Let’s look into each in detail.</para>
     <h3>Text Analysis</h3>
     <p>Text Analysis converts text into rich lingusitc information about pronunciation, rhythm, stress, intonation and prosody. These lingusitc features serve as the input to acoustic models.
     Phonemes are one such way to repesent linguistic features. Phoneme is a perceptually distinct unit of sound.
@@ -93,8 +93,8 @@
       In a traditional Machine Learning problem, generalization is typically achieved by throwing in more data. Unlike a traditional machine learning problem, Text-To-Speech is a one-to-many mapping problem. TTS is a typical one-to-many mapping problem, since multiple possible speech waveforms correspond to the same text message, owing to variations in pitch, duration, volume, energy and prosody. Controlling these parameters is necessary, as the model is prone to overfit to the variations of the target speech in the training set, resulting in poor generalization ability. Recent Research has demonstrated ability to control Duration, Pitch, Energy in the output speech. In the following experiments, we model pitch, and emotion, two features which influence the quality of speech explicitly. We then add this variance information to the phoneme hidden sequence before decoding. We look through the attention values to see how they affect the output.
     </para>
     <h3>Pitch</h3>
-    <para>Pitch is a key feature to convey emotion, and greatly affects the speech prosody.  FastSpeech provides a way to control pitch by adding pitch variance information to the phoneme hidden sequence. The ground truth pitch information, extracted from speech waveforms, are used as targets during training. The following figure shows how phoneme level attention without and with embedded pitch information.</para>
-    <h3>Visualising Attention with and without pitch embeddings</h3>
+    <para>Pitch is a key feature to convey emotion, and greatly affects the speech prosody.  FastSpeech <d-cite key="ren2019fastspeech"></d-cite> <d-cite key="ren2021fastspeech"></d-cite> provides a way to control pitch by adding pitch variance information to the phoneme hidden sequence. The ground truth pitch information, extracted from speech waveforms, are used as targets during training. The following figure shows how phoneme level attention without and with embedded pitch information.</para>
+    <h3>Visualising Attention<d-cite key="vig-2019-multiscale"></d-cite> with and without pitch embeddings</h3>
     We generate speech for the text "Ohh My God! Our dog died." with and without pitch embeddings. The following shows the visualisation of attention values in
     the first decoding step. The tokens on the left indicate phones in the sentence. Consecutive occurence of same phone are representative of it's duration<br>
 
@@ -137,12 +137,10 @@
     <para>
     Adding Emotion Embeddings helps in attending to much farther tokens to generate acoustic features.
     </para>
-
-    <h3>Citations</h3>
-    <p>We can<d-cite bibtex-key="mercier2011humans"></d-cite> also cite <d-cite
-        key="gregor2015draw,mercier2011humans,openai2018charter"></d-cite> external publications. <d-cite
-        key="dong2014image,dumoulin2016guide,mordvintsev2015inceptionism"></d-cite>. We should also be testing footnotes . There are multiple footnotes, and they appear in the appendix as well.</p>
-
   </d-article>
+
+  <d-appendix>
+    <d-bibliography src="bibliography.bib"></d-bibliography>
+  </d-appendix>
 
 </body>
